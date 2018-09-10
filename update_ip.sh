@@ -42,8 +42,6 @@ fi
 echo Current_Address: $current_address
 echo Last_Address: $last_address
 
-get_time=$(date +"%Y-%m-%d_%H-%M-%S")
-
 if [ "$current_address" == "$last_address" ]; then
  echo "No update required, IP address has not changed"
  exit;
@@ -65,5 +63,5 @@ else
 
   done;
  #write the entry into the log file so you can track how otfen and what addresses you get
- echo $get_time";"$current_address >> ./ip_address_list;
+ echo $(date +"%Y-%m-%d_%H-%M-%S")";"$current_address >> ./ip_address_list;
 fi;
